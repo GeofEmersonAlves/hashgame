@@ -7,8 +7,8 @@ package model;
  * @version 1.0 (25/08/2019)
  */
 public class HashGame {
-	public static int USERPLAYERVALUE=1;
-	public static int COMPUTERPLAYERVALUE=-1;
+	public static final int USERPLAYERVALUE=1;
+	public static final int COMPUTERPLAYERVALUE=-1;
 	
 	private int numMoves;
 	private int hash[][]= new int[3][3];
