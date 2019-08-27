@@ -276,8 +276,14 @@ public class HashGameController {
 						lineMyMovement = 1;  
 						columnMyMovement=0;						
 					} else if(columns[1]==-1 && hash[0][1]==-1 && hash[1][1]+hash[2][1]==0) {
-						lineMyMovement = 1;  
-						columnMyMovement=1;												
+						for(int i = 0;i<3;i++) {
+							for(int c=0;c<3;c++) {
+								if(hash[i][c]==0) {
+									lineMyMovement  = i;  
+									columnMyMovement= c;																					
+								}
+							}
+						}
 					} else if(columns[2]==-1 && hash[0][2]==-1 && hash[1][2]+hash[2][2]==0) {
 						lineMyMovement = 1;  
 						columnMyMovement=2;												
