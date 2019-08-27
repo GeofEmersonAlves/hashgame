@@ -279,8 +279,8 @@ public class HashGameController {
 						for(int i = 0;i<3;i++) {
 							for(int c=0;c<3;c++) {
 								if(hash[i][c]==0) {
-									lineMyMovement  = i;  
-									columnMyMovement= c;																					
+									lineMyMovement   = i;  
+									columnMyMovement = c;																					
 								}
 							}
 						}
