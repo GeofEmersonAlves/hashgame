@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd ">
+      
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>geofemesonalves</groupId>
+<artifactId>hashgame</artifactId>
+<version>1.5.0</version>
+<packaging>jar</packaging>
+
+<name>HashGame</name>
+<description>It is a hash game made in java. Have fun!</description>
+
+<properties>
+ 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+ 	<java.version>11</java.version>
+	<maven.compiler.source>${java.version}</maven.compiler.source>
+	<maven.compiler.target>${java.version}</maven.compiler.target>
+</properties>
+
+<licenses>
+	<license>
+		<name>Apache License</name>
+	</license>
+</licenses>
+
+<build>
+   	<pluginManagement>
+    	<plugins>
+ 			<plugin>
+          		<artifactId>maven-site-plugin</artifactId>
+          		<version>3.7.1</version>
+        	</plugin>
+        	<plugin>
+          		<artifactId>maven-project-info-reports-plugin</artifactId>
+          		<version>3.0.0</version>
+        	</plugin>      
+	    </plugins>
+    </pluginManagement>
+</build>
+	
+<developers>
+	<developer>
+		<name>Emerson A. Silva</name>
+		<email>emealves@gmail.com</email>
+		<url>https://www.linkedin.com/in/emersonalvesdasilva/</url>
+	</developer>
+</developers>  
+
+</project>
