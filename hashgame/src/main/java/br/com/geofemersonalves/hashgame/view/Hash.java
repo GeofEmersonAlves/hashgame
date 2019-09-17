@@ -1,5 +1,8 @@
 package br.com.geofemersonalves.hashgame.view;
 
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -12,9 +15,19 @@ import javax.swing.SwingConstants;
 public class Hash extends JLabel {
 
 		public Hash() {
-			String urlImageO= getClass().getResource("/images/Hash.png").getPath();
+			//String urlImageO= getClass().getResource("/images/Hash.png").getPath();
+			
+			String urlImageO="/images/Hash.png";
 			//System.out.println(urlImageO);
-			ImageIcon PostItimgIcon=new ImageIcon(urlImageO);
+			ImageIcon PostItimgIcon=null;
+			
+			try {
+				PostItimgIcon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream(urlImageO)));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			setHorizontalAlignment(SwingConstants.CENTER);
 			this.setIcon(PostItimgIcon);					
 		}

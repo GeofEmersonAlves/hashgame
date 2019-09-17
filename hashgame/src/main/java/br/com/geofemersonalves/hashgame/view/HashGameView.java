@@ -68,11 +68,26 @@ public class HashGameView  extends JFrame{
 	private void initComponents() {
 		borderLayoutGUI	= new BorderLayout(5,5);
 				
-		String urlSymbol_O = getClass().getResource("/images/Symbol_OSmall.png").getPath();
-		String urlSymbol_X = getClass().getResource("/images/Symbol_XSmall.png").getPath();
+		//Changed it because the image files couldn't be read in the jar executable file
+		//String urlSymbol_O = getClass().getResource("/images/Symbol_OSmall.png").getPath();
+		//String urlSymbol_X = getClass().getResource("/images/Symbol_XSmall.png").getPath();
+		//symbolsHashGameImg[0] = new ImageIcon( urlSymbol_O);
+		//symbolsHashGameImg[1] = new ImageIcon(urlSymbol_X);
+
+		String urlSymbol_O = "/images/Symbol_OSmall.png";
+		String urlSymbol_X = "/images/Symbol_XSmall.png";
+		
 		symbolsHashGameImg = new Object[2];
-		symbolsHashGameImg[0] = new ImageIcon(urlSymbol_O);
-		symbolsHashGameImg[1] = new ImageIcon(urlSymbol_X); 
+		
+		//Changed it because the image files couldn't be read in the jar executable file
+		try {
+			symbolsHashGameImg[0] = new ImageIcon(ImageIO.read(getClass().getResourceAsStream(urlSymbol_O)));
+			symbolsHashGameImg[1] = new ImageIcon(ImageIO.read(getClass().getResourceAsStream(urlSymbol_X)));	
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		comboBoxSymbols = new JComboBox(symbolsHashGameImg);
 		
 		panelCentral = new JPanel(null);
@@ -177,8 +192,11 @@ public class HashGameView  extends JFrame{
 		
 		try {
 			//Get the Paper Image and put it in the background of this frame
-			String urlImage= getClass().getResource("/images/Folha06.PNG").getPath();
-	        Image backgroundImage = ImageIO.read(new File(urlImage));
+			//String urlImage= getClass().getResource("/images/Folha06.PNG").getPath();
+			//Image backgroundImage = ImageIO.read(new File(urlImage));
+			
+			String urlImage= "/images/Folha06.PNG";
+			Image backgroundImage = ImageIO.read(getClass().getResourceAsStream(urlImage));    
 	        
 	        setSize(backgroundImage.getWidth(null)+5, backgroundImage.getHeight(null)+15);
 	        setResizable(false);
@@ -204,21 +222,28 @@ public class HashGameView  extends JFrame{
 		line45Degrees=new JLabel();;
 		lineMinus45Degrees=new JLabel();;
 
-		lineHorizontal.setIcon(new ImageIcon(getClass().getResource("/images/HorizontalLine.png").getPath()));
-		lineHorizontal.setBounds(POS_X,POS_Y+55,302,13);
-		lineHorizontal.setVisible(false);
+		try {
+			lineHorizontal.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/images/HorizontalLine.png"))));
+			lineHorizontal.setBounds(POS_X,POS_Y+55,302,13);
+			lineHorizontal.setVisible(false);
+			
+			LineVertical.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/images/VerticalLine.png"))));
+			LineVertical.setBounds(POS_X+55,POS_Y,9,315);
+			LineVertical.setVisible(false);
+			
+			line45Degrees.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/images/Line45Degrees.png"))));
+			line45Degrees.setBounds(POS_X,POS_Y,330,330);
+			line45Degrees.setVisible(false);
+			
+			lineMinus45Degrees.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/images/LineMinus45Degrees.png"))));
+			lineMinus45Degrees.setBounds(POS_X,POS_Y,330,330);                       
+			lineMinus45Degrees.setVisible(false);		
 		
-		LineVertical.setIcon(new ImageIcon(getClass().getResource("/images/VerticalLine.png").getPath()));
-		LineVertical.setBounds(POS_X+55,POS_Y,9,315);
-		LineVertical.setVisible(false);
-		
-		line45Degrees.setIcon(new ImageIcon(getClass().getResource("/images/Line45Degrees.png").getPath()));
-		line45Degrees.setBounds(POS_X,POS_Y,330,330);
-		line45Degrees.setVisible(false);
-		
-		lineMinus45Degrees.setIcon(new ImageIcon(getClass().getResource("/images/LineMinus45Degrees.png").getPath()));
-		lineMinus45Degrees.setBounds(POS_X,POS_Y,330,330);                       
-		lineMinus45Degrees.setVisible(false);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	//Listener for the Button Start Game
@@ -318,12 +343,22 @@ public class HashGameView  extends JFrame{
 		String urlImgSymbol;
 		
 		if(symbolId==0) {
-			urlImgSymbol= getClass().getResource("/images/Symbol_O.png").getPath();
+			//urlImgSymbol= getClass().getResource("/images/Symbol_O.png").getPath();
+			urlImgSymbol= "/images/Symbol_O.png";
 		} else {
-			urlImgSymbol= getClass().getResource("/images/Symbol_X.png").getPath();
+			//urlImgSymbol= getClass().getResource("/images/Symbol_X.png").getPath();
+			urlImgSymbol= "/images/Symbol_X.png";
 		}
 			
-		ImageIcon imgIconSymbol_O=new ImageIcon(urlImgSymbol);
+		ImageIcon imgIconSymbol_O=null;
+		
+		try {
+			imgIconSymbol_O = new ImageIcon(ImageIO.read(getClass().getResourceAsStream(urlImgSymbol)));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return imgIconSymbol_O;		
 	}
 	
