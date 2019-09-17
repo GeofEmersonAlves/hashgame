@@ -4,7 +4,7 @@
       
 <modelVersion>4.0.0</modelVersion>
 
-<groupId>br.com.geofemesonalves</groupId>
+<groupId>br.com.geofemesonalves.hashgame</groupId>
 <artifactId>hashgame</artifactId>
 <version>1.5.0</version>
 <packaging>jar</packaging>
@@ -35,7 +35,20 @@
         	<plugin>
           		<artifactId>maven-project-info-reports-plugin</artifactId>
           		<version>3.0.0</version>
-        	</plugin>      
+        	</plugin>   
+
+   			<plugin>
+   			<artifactId>maven-jar-plugin</artifactId>
+        	<version>3.1.2</version>
+			<configuration>
+      			<archive>
+        			<manifest>
+          				<addClasspath>true</addClasspath>	
+          				<mainClass>br.com.geofemersonalves.hashgame.HashGameAPP</mainClass>
+        			</manifest>
+      			</archive>
+    			</configuration>          			
+      		</plugin>        		            	   
 	    </plugins>
     </pluginManagement>
 </build>

@@ -177,8 +177,9 @@ public class HashGameView  extends JFrame{
 		
 		try {
 			//Get the Paper Image and put it in the background of this frame
-			String urlImage= getClass().getResource("/images/Folha06.png").getPath();
+			String urlImage= getClass().getResource("/images/Folha06.PNG").getPath();
 	        Image backgroundImage = ImageIO.read(new File(urlImage));
+	        
 	        setSize(backgroundImage.getWidth(null)+5, backgroundImage.getHeight(null)+15);
 	        setResizable(false);
 	       
