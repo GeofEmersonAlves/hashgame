@@ -30,8 +30,8 @@ import br.com.geofemersonalves.hashgame.model.HashGame;
  * @version 1.0 starts in (24/08/2019)
  */
 public class HashGameView  extends JFrame{
-	private static final int POS_X=80;
-	private static final int POS_Y=230;
+	private static final int POS_X=40;
+	private static final int POS_Y=180;
 	
 	private HashGameController gameController;
 
@@ -110,9 +110,9 @@ public class HashGameView  extends JFrame{
 	//PREPARA A VISUALIZAÇÃO/LAYOUT PARA OS COMPONENTES DA JANELA
 	private void intView() { 
 		labelSymbol.setText("Choose a symbol to play:");
-		labelSymbol.setBounds(50, 105, 150, 20);
-		comboBoxSymbols.setBounds(200,108,40,30);
-		hash.setBounds(70, 220, 330, 330);	
+		labelSymbol.setBounds (50, 30, 150, 20);
+		comboBoxSymbols.setBounds(200,38,40,30);
+		hash.setBounds(POS_X-10, POS_Y-10, 330, 330);	
 		hash.setVisible(false);
 		//hash.setBorder(BorderFactory.createLineBorder(Color.black));
 
@@ -120,7 +120,7 @@ public class HashGameView  extends JFrame{
 		try {
 			imageButton = ImageIO.read(getClass().getResource("/images/ToBattleButton.png"));
 			startButton.setIcon(new ImageIcon(imageButton));
-			startButton.setBounds(260, 108, 81, 30);
+			startButton.setBounds(260, 38, 81, 30);
 			startButton.addActionListener(e -> startHashGameView(e));
 			
 		} catch (IOException e) {
@@ -130,7 +130,7 @@ public class HashGameView  extends JFrame{
 		try {
 			imageButton = ImageIO.read(getClass().getResource("/images/NewGameButton.png"));
 			newGameButton.setIcon(new ImageIcon(imageButton));
-			newGameButton.setBounds(260, 140, 81, 30);
+			newGameButton.setBounds(260, 68, 81, 30);
 			newGameButton.setVisible(false);
 			newGameButton.addActionListener(e -> newHashGameView(e));
 			
